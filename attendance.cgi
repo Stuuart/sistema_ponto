@@ -4,10 +4,10 @@ import login
 print('Content-type:text/html\n\n')
 print('<html>')
 print('<head>')
-print('<title>Entradas</title>')
+print('<title>Sailors</title>')
 print('</head>')
 print('<body>')
-print('<h3>Entradas</h3>')
+print('<h3>Sailors</h3>')
 connection = None
 try:
 	# Creating connection
@@ -20,7 +20,7 @@ try:
 			<tr>
 				<td>
 					<form action="create_sailor.cgi" method="post">
-					<p><input type="submit" value="Ver Attendance"/></p>
+					<p><input type="submit" value="Create new sailor"/></p>
 					</form>
 				</td>
 				<td>
@@ -34,7 +34,13 @@ try:
 	# Making query
 
 	sql = """
-		SELECT * FROM punching;
+		select concat(firstname, ' ', surname) as name,
+        						'Senior' as type, email
+		from senior se natural join sailor s1
+		union
+		select concat(firstname, ' ', surname) as name,
+								'Junior' as type, email
+		from junior ju natural join sailor s2;
 		"""
 	cursor.execute(sql)
 	result = cursor.fetchall()
@@ -42,7 +48,7 @@ try:
 
 	# Displaying results
 	print('<table border="5" cellspacing="5">')
-	print('<tr><td><b>Card</b></td><td><b>Time</b></td><td><b>In/Out</b></td></tr>')
+	print('<tr><td><b>Name</b></td><td><b>Type</b></td><td><b>e-mail</b></td></tr>')
 	for row in result:
 		print('<tr>')
 		for value in row:

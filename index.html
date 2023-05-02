@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+	<title>Sistema de Ponto</title>
     <style>
 
           html, body {
@@ -50,26 +50,18 @@
     </style>
 </head>
 <body>
-	<p><strong><span style="font-size: 30px;">Home</span></strong></p>
+	<p><strong><span style="font-size: 30px;">Bem-vindo ao Sistema de Ponto</span></strong></p>
 	<table cellspacing="25">
 		<tr>
 			<td>
-				<form action="sailors.cgi" method="post">
-				<p><input type="submit" value="Sailors"/></p>
+				<form action="punching.cgi" method="post">
+				<p><input type="submit" value="Dar Entrada"/></p>
 				</form>
 			</td>
 			<td>
-				<form action="reservations.cgi" method="post">
-				<p><input type="submit" value="Reservations"/></p>
+				<form action="attendance.cgi" method="post">
+				<p><input type="submit" value="Consultar Entradas"/></p>
 				</form>
-			</td>
-			<!--
-			<td>
-				<form action="trips.cgi" method="post">
-				<p><input type="submit" value="Edit trips"/></p>
-				</form>
-			</td>
-			-->
 		</tr>
 	</table>
 </body>
